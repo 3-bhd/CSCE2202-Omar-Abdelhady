@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
 pair<int, pair<int, int>> maxCrossingSubArray(vector<int>& nums, int start, int end, int mid) {
-    int leftSum = -9999;
+    int leftSum = INT_MIN;
     int sum = 0;
     int maxLeft = mid;
     for (int i = mid; i >= start; i--) {
@@ -14,7 +15,7 @@ pair<int, pair<int, int>> maxCrossingSubArray(vector<int>& nums, int start, int 
             maxLeft = i;
         }
     }
-    int rightSum = -9999;
+    int rightSum = INT_MIN;
     sum = 0;
     int maxRight = mid + 1;
     for (int i = mid + 1; i <= end; i++) {
